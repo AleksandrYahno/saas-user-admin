@@ -1,0 +1,10 @@
+{
+  "homePage": {
+    "title": "Home",
+    "subtitle": "SaaS User Admin"
+  },
+  "error": {
+    "somethingWentWrong": "Something went wrong.",
+    "reload": "Reload"
+  }
+}
