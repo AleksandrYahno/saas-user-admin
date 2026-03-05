@@ -2,15 +2,15 @@ import { FC, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const HomePage: FC = (): ReactElement => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('home');
 
   return (
     <main>
       <h1>
-        {t('homePage.title')}
+        {t('home_page.title')}
       </h1>
       <p>
-        {t('homePage.subtitle')}
+        {t('home_page.subtitle')}
       </p>
     </main>
   );

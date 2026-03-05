@@ -1,4 +1,5 @@
-import { defineConfig, type PluginOption } from 'vite';
+import { defineConfig } from 'vitest/config';
+import type { PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -29,8 +30,20 @@ export default defineConfig({
           ) {
             return 'i18n';
           }
+          if (
+            id.includes('node_modules/zustand') ||
+            id.includes('node_modules/immer')
+          ) {
+            return 'zustand';
+          }
         },
       },
     },
   },
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: ['./src/test/setup.ts'],
+  },
 });
+

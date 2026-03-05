@@ -17,7 +17,7 @@ const ErrorFallback: FC = () => {
   return (
     <div style={errorFallbackRootStyle}>
       <p style={errorFallbackMessageStyle}>
-        {t('error.somethingWentWrong')}
+        {t('error.something_went_wrong')}
       </p>
 
       <button
