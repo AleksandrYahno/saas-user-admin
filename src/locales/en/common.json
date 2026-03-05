@@ -28,7 +28,15 @@
   "users_page": {
     "title": "Users",
     "loading": "Loading users...",
-    "total_users_label": "Total users:"
+    "total_users_label": "Total users:",
+    "table_name": "Name",
+    "table_email": "Email",
+    "table_role": "Role",
+    "table_created_at": "Created At",
+    "table_actions": "Actions",
+    "delete": "Delete",
+    "empty": "No users yet.",
+    "user_deleted": "User deleted."
   },
   "error": {
     "something_went_wrong": "Something went wrong.",

@@ -1,0 +1,20 @@
+.create-user-page h2 {
+  margin-top: 0;
+  color: #111827;
+}
+
+.create-user-page {
+  max-width: var(--page-card-max-width);
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.create-user-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

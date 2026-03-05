@@ -11,6 +11,7 @@ const userService = createUserService(localStorageUserDataSource);
 
 export interface IUsersCommandOptions {
   onError?: (message: string) => void;
+  onSuccess?: () => void;
 }
 
 export const loadUsersCommand = async (
@@ -88,6 +89,7 @@ export const deleteUserCommand = async (
   try {
     await userService.deleteUser(id);
     removeUser(id);
+    options?.onSuccess?.();
   } catch (_error) {
     options?.onError?.('Failed to delete user.');
   }

@@ -2,6 +2,7 @@ import { IUser, IUserDraft, IUserId, IUserValidationErrors } from '@domain/users
 
 export interface IUsersPageVMOptions {
   onError?: (message: string) => void;
+  onDeleteSuccess?: () => void;
 }
 
 export interface IUsersPageVM {

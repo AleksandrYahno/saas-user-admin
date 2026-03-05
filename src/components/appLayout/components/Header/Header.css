@@ -1,11 +1,23 @@
 .app-layout__header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 24px;
   height: 66px;
   background-color: #1f2937;
   color: #f9fafb;
+}
+
+.app-layout__header-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-layout__header-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: inherit;
 }
 
 .app-layout__user-placeholder {
@@ -15,7 +27,7 @@
   background-color: #374151;
   display: flex;
   align-items: center;
-  justifyContent: center;
+  justify-content: center;
   font-size: 14px;
 }
 

@@ -20,6 +20,7 @@ const useUsersPageVM = (options?: IUsersPageVMOptions): IUsersPageVM => {
   } = useAppStoreContext();
   const {
     onError,
+    onDeleteSuccess,
   } = options ?? {};
 
   const {
@@ -63,15 +64,15 @@ const useUsersPageVM = (options?: IUsersPageVMOptions): IUsersPageVM => {
 
   const handleDeleteUser = useCallback(
     async (id: IUserId): Promise<void> => {
-      await deleteUserCommand(
-        appStore,
-        id,
-        commandOptions,
-      );
+      await deleteUserCommand(appStore, id, {
+        ...commandOptions,
+        onSuccess: onDeleteSuccess,
+      });
     },
     [
       appStore,
       commandOptions,
+      onDeleteSuccess,
     ],
   );
 

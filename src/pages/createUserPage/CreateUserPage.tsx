@@ -9,6 +9,8 @@ import { Button } from '@shared/UIkit/button/Button';
 import { Select } from '@shared/UIkit/select/Select';
 import { TextField } from '@shared/UIkit/textField/TextField';
 
+import './CreateUserPage.css';
+
 const CreateUserPage: FC = (): ReactElement => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
@@ -34,12 +36,15 @@ const CreateUserPage: FC = (): ReactElement => {
   };
 
   return (
-    <div>
-      <h1>
+    <div className="create-user-page">
+      <h2>
         {t('create_user_page.title')}
-      </h1>
+      </h2>
 
-      <form onSubmit={handleSubmit}>
+      <form
+        className="create-user-page__form"
+        onSubmit={handleSubmit}
+      >
         <TextField
           label={t('create_user_page.full_name_label')}
           name="fullName"
