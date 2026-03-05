@@ -15,7 +15,9 @@
       "@providers/*": ["src/providers/*"],
       "@helpers/*": ["src/helpers/*"],
       "@shared/*": ["src/shared/*"],
-      "@store/*": ["src/store/*"],
+      "@store/*": ["src/providers/appStoreProvider/appStoreStore/*"],
+      "@domain/*": ["src/domain/*"],
+      "@data/*": ["src/data/*"],
       "@locales/*": ["src/locales/*"],
       "@i18n": ["src/i18n/i18n.ts"]
     },
