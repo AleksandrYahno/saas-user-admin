@@ -13,7 +13,17 @@
   },
   "create_user_page": {
     "title": "Create User",
-    "placeholder_text": "Form will be implemented next."
+    "full_name_label": "Full Name",
+    "email_label": "Email",
+    "role_label": "Role",
+    "role_admin": "Admin",
+    "role_member": "Member",
+    "role_viewer": "Viewer",
+    "password_label": "Password",
+    "confirm_password_label": "Confirm Password",
+    "submit_button": "Create user",
+    "cancel_button": "Cancel",
+    "user_created": "User created."
   },
   "users_page": {
     "title": "Users",

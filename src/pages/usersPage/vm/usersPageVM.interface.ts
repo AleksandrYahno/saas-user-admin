@@ -1,10 +1,13 @@
 import { IUser, IUserDraft, IUserId, IUserValidationErrors } from '@domain/users/user.interface';
 
+export interface IUsersPageVMOptions {
+  onError?: (message: string) => void;
+}
+
 export interface IUsersPageVM {
   users: IUser[];
   isLoadingUsers: boolean;
   isSavingUser: boolean;
-  error?: string;
 
   onReload: () => void;
   onCreateUser: (draft: IUserDraft) => Promise<IUserValidationErrors | null>;

@@ -1,15 +1,23 @@
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSnackbar } from 'notistack';
 
 import useUsersPageVM from '@pages/usersPage/vm/useUsersPageVM';
 
 const UsersPage: FC = (): ReactElement => {
+  const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const onError = useCallback((message: string) => {
+    enqueueSnackbar(message, { variant: 'error' });
+  }, [
+    enqueueSnackbar,
+  ]);
+
   const {
     users,
     isLoadingUsers,
-    error,
-  } = useUsersPageVM();
-  const { t } = useTranslation();
+  } = useUsersPageVM({ onError });
 
   return (
     <div>
@@ -23,13 +31,7 @@ const UsersPage: FC = (): ReactElement => {
         </p>
       )}
 
-      {error && (
-        <p>
-          {error}
-        </p>
-      )}
-
-      {!isLoadingUsers && !error && (
+      {!isLoadingUsers && (
         <p>
           {t('users_page.total_users_label')}
           {' '}

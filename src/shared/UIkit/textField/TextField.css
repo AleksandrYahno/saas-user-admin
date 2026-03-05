@@ -1,0 +1,66 @@
+.ui-textfield {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ui-textfield--full-width {
+  width: 100%;
+}
+
+.ui-textfield--full-width .ui-textfield__input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ui-textfield__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.ui-textfield--error .ui-textfield__label {
+  color: #dc2626;
+}
+
+.ui-textfield__input {
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111827;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  transition: border-color 0.15s ease;
+}
+
+.ui-textfield__input:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.ui-textfield__input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.ui-textfield__input:disabled {
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+  opacity: 0.8;
+}
+
+.ui-textfield--error .ui-textfield__input {
+  border-color: #dc2626;
+}
+
+.ui-textfield--error .ui-textfield__input:focus {
+  border-color: #dc2626;
+}
+
+.ui-textfield__error {
+  margin: 0;
+  min-height: 1.25em;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  color: #dc2626;
+}

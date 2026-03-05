@@ -1,0 +1,72 @@
+.ui-select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ui-select--full-width {
+  width: 100%;
+}
+
+.ui-select--full-width .ui-select__select {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ui-select__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.ui-select--error .ui-select__label {
+  color: #dc2626;
+}
+
+.ui-select__select {
+  padding: 10px 2.25rem 10px 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111827;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  transition: border-color 0.15s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}
+
+.ui-select__select:hover:not(:disabled) {
+  border-color: #9ca3af;
+}
+
+.ui-select__select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.ui-select__select:disabled {
+  cursor: not-allowed;
+  background-color: #f3f4f6;
+  opacity: 0.8;
+}
+
+.ui-select--error .ui-select__select {
+  border-color: #dc2626;
+}
+
+.ui-select--error .ui-select__select:focus {
+  border-color: #dc2626;
+}
+
+.ui-select__error {
+  margin: 0;
+  min-height: 1.25em;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  color: #dc2626;
+}

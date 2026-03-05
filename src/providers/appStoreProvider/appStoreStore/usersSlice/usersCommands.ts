@@ -9,24 +9,29 @@ import type { UseAppStore } from '@providers/appStoreProvider/AppStoreProvider';
 
 const userService = createUserService(localStorageUserDataSource);
 
-export const loadUsersCommand = async (store: UseAppStore): Promise<void> => {
+export interface IUsersCommandOptions {
+  onError?: (message: string) => void;
+}
+
+export const loadUsersCommand = async (
+  store: UseAppStore,
+  options?: IUsersCommandOptions,
+): Promise<void> => {
   const {
     usersSlice,
   } = store.getState();
   const {
     setLoadingUsers,
-    setError,
     setUsers,
   } = usersSlice;
 
   setLoadingUsers(true);
-  setError(undefined);
 
   try {
     const users = await userService.loadUsers();
     setUsers(users);
   } catch (_error) {
-    setError('Failed to load users.');
+    options?.onError?.('Failed to load users.');
   } finally {
     setLoadingUsers(false);
   }
@@ -35,18 +40,17 @@ export const loadUsersCommand = async (store: UseAppStore): Promise<void> => {
 export const createUserCommand = async (
   store: UseAppStore,
   draft: IUserDraft,
+  options?: IUsersCommandOptions,
 ): Promise<IUserValidationErrors | null> => {
   const {
     usersSlice,
   } = store.getState();
   const {
     setSavingUser,
-    setError,
     addUser,
   } = usersSlice;
 
   setSavingUser(true);
-  setError(undefined);
 
   try {
     const result = await userService.createUser(draft);
@@ -61,7 +65,7 @@ export const createUserCommand = async (
 
     return null;
   } catch (_error) {
-    setError('Failed to create user.');
+    options?.onError?.('Failed to create user.');
 
     return null;
   } finally {
@@ -72,22 +76,20 @@ export const createUserCommand = async (
 export const deleteUserCommand = async (
   store: UseAppStore,
   id: IUserId,
+  options?: IUsersCommandOptions,
 ): Promise<void> => {
   const {
     usersSlice,
   } = store.getState();
   const {
     removeUser,
-    setError,
   } = usersSlice;
-
-  setError(undefined);
 
   try {
     await userService.deleteUser(id);
     removeUser(id);
   } catch (_error) {
-    setError('Failed to delete user.');
+    options?.onError?.('Failed to delete user.');
   }
 };
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 
 import {
   IUserDraft,
@@ -12,30 +12,39 @@ import {
   loadUsersCommand,
 } from '@providers/appStoreProvider/appStoreStore/usersSlice/usersCommands';
 
-import { IUsersPageVM } from './usersPageVM.interface';
+import { IUsersPageVM, IUsersPageVMOptions } from './usersPageVM.interface';
 
-const useUsersPageVM = (): IUsersPageVM => {
+const useUsersPageVM = (options?: IUsersPageVMOptions): IUsersPageVM => {
   const {
     appStore,
   } = useAppStoreContext();
+  const {
+    onError,
+  } = options ?? {};
 
   const {
     users,
     isLoadingUsers,
     isSavingUser,
-    error,
   } = appStore((state) => state.usersSlice);
 
+  const commandOptions = useMemo(
+    () => ({ onError }),
+    [onError],
+  );
+
   useEffect(() => {
-    void loadUsersCommand(appStore);
+    void loadUsersCommand(appStore, commandOptions);
   }, [
     appStore,
+    commandOptions,
   ]);
 
   const handleReload = useCallback(() => {
-    void loadUsersCommand(appStore);
+    void loadUsersCommand(appStore, commandOptions);
   }, [
     appStore,
+    commandOptions,
   ]);
 
   const handleCreateUser = useCallback(
@@ -43,10 +52,12 @@ const useUsersPageVM = (): IUsersPageVM => {
       return createUserCommand(
         appStore,
         draft,
+        commandOptions,
       );
     },
     [
       appStore,
+      commandOptions,
     ],
   );
 
@@ -55,10 +66,12 @@ const useUsersPageVM = (): IUsersPageVM => {
       await deleteUserCommand(
         appStore,
         id,
+        commandOptions,
       );
     },
     [
       appStore,
+      commandOptions,
     ],
   );
 
@@ -66,7 +79,6 @@ const useUsersPageVM = (): IUsersPageVM => {
     users,
     isLoadingUsers,
     isSavingUser,
-    error,
     onReload: handleReload,
     onCreateUser: handleCreateUser,
     onDeleteUser: handleDeleteUser,
