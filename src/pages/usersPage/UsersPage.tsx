@@ -1,4 +1,5 @@
 import { FC, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import useUsersPageVM from '@pages/usersPage/vm/useUsersPageVM';
 
@@ -8,16 +9,17 @@ const UsersPage: FC = (): ReactElement => {
     isLoadingUsers,
     error,
   } = useUsersPageVM();
+  const { t } = useTranslation();
 
   return (
     <div>
       <h1>
-        Users
+        {t('users_page.title')}
       </h1>
 
       {isLoadingUsers && (
         <p>
-          Loading users...
+          {t('users_page.loading')}
         </p>
       )}
 
@@ -29,7 +31,7 @@ const UsersPage: FC = (): ReactElement => {
 
       {!isLoadingUsers && !error && (
         <p>
-          Total users:
+          {t('users_page.total_users_label')}
           {' '}
           {users.length}
         </p>

@@ -1,0 +1,21 @@
+.app-layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 24px;
+  height: 66px;
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+.app-layout__user-placeholder {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: #374151;
+  display: flex;
+  align-items: center;
+  justifyContent: center;
+  font-size: 14px;
+}
+

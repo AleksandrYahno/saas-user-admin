@@ -1,4 +1,25 @@
 {
+  "layout": {
+    "logo_title": "Nol8 Admin"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "create_user": "Create User",
+    "users_list": "Users List"
+  },
+  "dashboard_page": {
+    "title": "Dashboard",
+    "welcome_text": "Welcome."
+  },
+  "create_user_page": {
+    "title": "Create User",
+    "placeholder_text": "Form will be implemented next."
+  },
+  "users_page": {
+    "title": "Users",
+    "loading": "Loading users...",
+    "total_users_label": "Total users:"
+  },
   "error": {
     "something_went_wrong": "Something went wrong.",
     "reload": "Reload"

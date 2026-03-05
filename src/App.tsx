@@ -7,8 +7,8 @@ import { AppStoreProvider } from '@providers/appStoreProvider/AppStoreProvider';
 const App: FC = (): ReactElement => {
   const GlobalProviders = useMemo(() => {
     return buildProvidersTree([
-      [AppMainProvider],
       [AppStoreProvider],
+      [AppMainProvider],
     ]);
   }, []);
 

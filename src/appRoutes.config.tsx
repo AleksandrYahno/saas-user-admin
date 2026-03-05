@@ -1,17 +1,55 @@
 import { lazy } from 'react';
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 
+import AppLayout from '@components/appLayout/AppLayout';
 import LazyPageBoundary from '@components/lazyPageBoundary/LazyPageBoundary';
 
-const HomePage = lazy(() => import('@pages/homePage/HomePage'));
+const DashboardPage = lazy(() => import('@pages/dashboardPage/DashboardPage'));
+const CreateUserPage = lazy(() => import('@pages/createUserPage/CreateUserPage'));
+const UsersPage = lazy(() => import('@pages/usersPage/UsersPage'));
 
 export const appRouter = createBrowserRouter([
   {
     path: '/',
     element: (
-      <LazyPageBoundary>
-        <HomePage />
-      </LazyPageBoundary>
+      <AppLayout />
     ),
+    children: [
+      {
+        index: true,
+        element: (
+          <LazyPageBoundary>
+            <Navigate
+              to="/dashboard"
+              replace
+            />
+          </LazyPageBoundary>
+        ),
+      },
+      {
+        path: 'dashboard',
+        element: (
+          <LazyPageBoundary>
+            <DashboardPage />
+          </LazyPageBoundary>
+        ),
+      },
+      {
+        path: 'create-user',
+        element: (
+          <LazyPageBoundary>
+            <CreateUserPage />
+          </LazyPageBoundary>
+        ),
+      },
+      {
+        path: 'users',
+        element: (
+          <LazyPageBoundary>
+            <UsersPage />
+          </LazyPageBoundary>
+        ),
+      },
+    ],
   },
 ]);
