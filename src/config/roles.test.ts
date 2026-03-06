@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import type { TFunction } from 'i18next';
 
 import {
   getUserRoleOptions,
@@ -28,7 +29,7 @@ describe('roles config', () => {
 
   describe('getUserRoleOptions', () => {
     it('returns options with value and translated label using t()', () => {
-      const t = vi.fn((key: string) => `translated:${key}`);
+      const t = vi.fn((key: string) => `translated:${key}`) as unknown as TFunction;
 
       const result = getUserRoleOptions(t);
 
