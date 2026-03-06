@@ -1,0 +1,20 @@
+.dashboard-page {
+  max-width: var(--page-card-max-width);
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.dashboard-page__stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.dashboard-page__stats .stat-card {
+  flex: 1;
+  min-width: 180px;
+}

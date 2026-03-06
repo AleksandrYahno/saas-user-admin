@@ -9,7 +9,10 @@
   },
   "dashboard_page": {
     "title": "Dashboard",
-    "welcome_text": "Welcome."
+    "welcome_text": "Welcome.",
+    "total_users": "Total Users",
+    "active_users": "Active Users",
+    "pending_invitations": "Pending Invitations"
   },
   "create_user_page": {
     "title": "Create User",
