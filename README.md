@@ -172,9 +172,3 @@ GitHub Actions workflow: `.github/workflows/ci.yml`
 - `npm ci`
 - `npm run lint`
 - `npm run test`
-
----
-
-## License
-
-Private / to be set.
